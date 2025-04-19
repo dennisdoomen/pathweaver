@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;netstandard2.1;net47;net8.0</TargetFrameworks>
+        <Nullable>enable</Nullable>
+        <LangVersion>default</LangVersion>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <NuSpecFile>.nuspec</NuSpecFile>
+        <NuspecProperties>version=$(Version)</NuspecProperties>
+        <DefineConstants>MYPACKAGE_COMPILE</DefineConstants>
+        <NoWarn>1591;1573</NoWarn>
+        <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+        <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+        <AssemblyName>Pathy.Globbing</AssemblyName>
+        <RootNamespace>Pathy.Globbing</RootNamespace>
+    </PropertyGroup>
+
+  <ItemGroup Label="Package files">
+    <None Include="..\PackageIcon.png" Pack="true" Visible="false" PackagePath="" />
+    <None Include="..\LICENSE" Pack="true" PackagePath=""/>
+    <None Include="..\README.md" Pack="true" PackagePath=""/>
+  </ItemGroup>
+
+  <ItemGroup Label="Internals visible to">
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>Pathy.Specs</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.FileSystemGlobbing" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pathy\Pathy.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <DocumentationFile>bin\Debug\Pathy.Globbing.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <DocumentationFile>bin\Release\Pathy.Globbing.xml</DocumentationFile>
+    </PropertyGroup>
+
+</Project>

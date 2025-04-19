@@ -1,0 +1,8 @@
+﻿[assembly: System.Runtime.CompilerServices.InternalsVisibleTo("Pathy.Specs")]
+namespace Pathy
+{
+    public static class ChainablePathExtensions
+    {
+        public static Pathy.ChainablePath[] GlobFiles(this Pathy.ChainablePath path, string globPattern) { }
+    }
+}
